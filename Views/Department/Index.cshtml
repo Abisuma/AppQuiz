@@ -1,0 +1,48 @@
+﻿@model List<Department>
+ <div class="container">
+    <div class="row pt-4 pb-4">
+         <div class=" col-6">
+            <h2 class="text-primary">
+                Department List
+            </h2>
+         </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Department" asp-action="CreateDept" class="btn btn-primary">
+                Create
+            </a>
+            
+            <a asp-controller="Question" asp-action="CreateQuestion" class="btn btn-primary mx-4">
+                Create Questions
+            </a>
+        </div>
+     </div>
+    
+
+  <table id="catTable" class="table table-striped table-bordered" style="width:100%">
+     <thead>
+        <tr>
+            <th>
+             Department Name
+            </th>
+            
+             <th>
+                   
+             </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+            <td>@obj.DepartmentalName</td>
+
+                    @*<td class=" btn-grp" role="group">
+                        <a asp-controller="Question" asp-action="CreateQuestion" asp-route-id="@obj.DepartmentId" class="btn btn-primary mx-4">
+                            Create Questions
+                        </a>
+                </td>*@
+            </tr> 
+        }
+        </tbody>
+</table>
+</div>

@@ -1,0 +1,33 @@
+﻿@model DepartmentView
+
+    <form method="post">
+        <input type="hidden" name="Department.DepartmentId" value="@Model.Department.DepartmentId" />
+
+    @for (int i = 0; i < Model.Department.Questions.Count; i++)
+    {
+        var question = Model.Department.Questions[i];
+        var namePrefix = $"answer_{i}";
+
+        <div>
+            <h4>
+                @question.Text
+            </h4>
+
+            <input type="radio" id="@($"{namePrefix}_A")" name="@($"{namePrefix}")" value="@question.AnswerA" />
+            <label for="@($"{namePrefix}_A")">@question.AnswerA</label>
+
+            <input type="radio" id="@($"{namePrefix}_B")" name="@($"{namePrefix}")" value="@question.AnswerB" />
+            <label for="@($"{namePrefix}_B")">@question.AnswerB</label>
+
+            <input type="radio" id="@($"{namePrefix}_C")" name="@($"{namePrefix}")" value="@question.AnswerC" />
+            <label for="@($"{namePrefix}_C")">@question.AnswerC</label>
+
+            <input type="radio" id="@($"{namePrefix}_D")" name="@($"{namePrefix}")" value="@question.AnswerD" />
+            <label for="@($"{namePrefix}_D")">@question.AnswerD</label>
+        </div>
+    }
+
+    <input type="hidden" name="departmentId" value="@Model.Department.DepartmentId" />
+        <input type="submit" value="Submit" />
+         
+</form>

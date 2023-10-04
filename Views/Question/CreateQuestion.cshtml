@@ -1,0 +1,77 @@
+﻿@model QuestionView
+
+@*@{
+    ViewBag.Title = $"Create New Questions For Department {Model.Question.Department.DepartmentalName}";
+}*@
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container">
+     <div class="row">
+            <form method="post">
+                        <div class="col-md-6 offset-md-3">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Question.Text">Question Text</label>
+                                    <input asp-for="Question.Text" class="form-control" />
+                                    <span asp-validation-for="Question.Text" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Question.AnswerA">Answer A</label>
+                                    <input asp-for="Question.AnswerA" class="form-control" />
+                                    <span asp-validation-for="Question.AnswerA" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Question.AnswerB">Answer B</label>
+                                    <input asp-for="Question.AnswerB" class="form-control" />
+                                    <span asp-validation-for="Question.AnswerB" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Question.AnswerC">Answer C</label>
+                                    <input asp-for="Question.AnswerC" class="form-control" />
+                                    <span asp-validation-for="Question.AnswerC" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Question.AnswerD">Answer D</label>
+                                    <input asp-for="Question.AnswerD" class="form-control" />
+                                    <span asp-validation-for="Question.AnswerD" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Question.CorrectAnswer">Correct Answer</label>
+                                    <div>
+                                        <label class="radio-inline">
+                                            <input type="radio" asp-for="Question.CorrectAnswer" value="A" checked="checked" /> A
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" asp-for="Question.CorrectAnswer" value="B" /> B
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" asp-for="Question.CorrectAnswer" value="C" /> C
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" asp-for="Question.CorrectAnswer" value="D" /> D
+                                        </label>
+                                    </div>
+                                    <span asp-validation-for="Question.CorrectAnswer" class="text-danger"></span>
+                                </div>
+
+                                @*<div class="form-group">
+                                    <input type="hidden" asp-for="Question.DepartmentId" value="@Model.Question.DepartmentId" />
+                                    
+                                </div>*@
+
+
+                                    <div class=" mb-3 row p-1">
+                                        <select asp-for="@Model.Question.DepartmentId" asp-items="@Model.DepartmentList" class=" form-select p-0">
+                                            <option disabled selected>-Selected Department-</option>
+                                        </select>
+
+                                        <span asp-validation-for="@Model.Question.DepartmentId" class="text-danger"></span>
+                                    </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Create Question</button>
+                        </div>
+            </form>
+    
+
+     </div>  
+</div>
